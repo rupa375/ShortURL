@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Generator</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            width: 350px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: #667eea;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #5a67d8;
+        }
+
+        .note {
+            margin-top: 12px;
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>URL Shortener</h2>
+<% if (locals.id) { %>
+  <p>URL Generated: http://localhost/url/<%= id %></p>
+<% } %>
+        <form method="POST" action="/url">
+            <label >Enter your original URL</label>
+            <input 
+                type="url" 
+             
+                name="url" 
+                placeholder="https://example.com" 
+                required
+            >
+
+            <button type="submit">Generate</button>
+        </form>
+
+        <p class="note">Paste a valid URL starting with https://</p>
+    </div>
+
+ <!-- <% if (urls && urls.length > 0) { %>
+<table>
+  <thead>
+    <tr>
+      <th>S.No</th>
+      <th>Short ID</th>
+      <th>Redirect</th>
+      <th>Clicks</th>
+    </tr>
+  </thead>
+
+ 
+  <tbody>
+  <% urls.forEach((url, index) => { %>
+    <tr>
+      <td><%= index + 1 %></td>
+      <td><%= url.shortId %></td>
+      <td><%= url.redirectURL %></td>
+      <td><%= url.visitHistory.length %></td>
+    </tr>
+  <% }) %>
+</tbody>
+
+</table> -->
+<% } %>
+</body>
+</html>
